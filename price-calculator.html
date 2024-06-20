@@ -22,6 +22,17 @@
         h1 {
             text-align: center;
             color: #333;
+            margin: 0;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 0.8em; /* 폰트 크기를 작게 변경 */
+            color: #666;
+            margin-top: 5px;
+        }
+        .example {
+            font-size: 0.8em; /* 예시 부분의 글씨 크기를 작게 변경 */
+            color: #666;
         }
         form {
             display: flex;
@@ -41,7 +52,7 @@
         button {
             margin-top: 20px;
             padding: 10px;
-            background-color: #5cb85c;
+            background-color: #007bff; /* 파란색으로 변경 */
             color: white;
             border: none;
             border-radius: 4px;
@@ -49,7 +60,7 @@
             cursor: pointer;
         }
         button:hover {
-            background-color: #4cae4c;
+            background-color: #0056b3; /* 어두운 파란색으로 변경 */
         }
         #result {
             margin-top: 20px;
@@ -114,9 +125,9 @@
                 case "1회성":
                     return 1.0;
                 case "분기별":
-                    return 2.8;
-                case "월별":
                     return 2.5;
+                case "월별":
+                    return 2.8;
                 case "주차별":
                     return 3.0;
                 default:
@@ -180,20 +191,21 @@
 </head>
 <body>
     <div class="container">
-        <h1>데이터가격계산기 (feat. 데이터사업팀)</h1>
+        <h1>데이터가격계산기</h1>
+        <p class="subtitle">(feat. 데이터사업팀)</p> <!-- 글씨 크기를 작게 변경 -->
         <form onsubmit="event.preventDefault(); calculateFinalPrice();">
-            <label for="members">회원수 입력: 예시) 서울 거주회원, 호텔업종 이용회원 등</label>
-            <input type="number" id="members" required><br>
+            <label for="members">회원수 입력: <span class="example">예시) 서울 거주회원, 호텔업종 이용회원 등</span></label> <!-- 예시 글씨 크기를 작게 변경 -->
+            <input type="number" id="members" value="11000000" required><br>
 
-            <label for="merchants">가맹점수 입력: 예시) 대전 소재가맹점, 병원업종 가맹점 등</label>
-            <input type="number" id="merchants" required><br>
+            <label for="merchants">가맹점수 입력: <span class="example">예시) 대전 소재가맹점, 병원업종 가맹점 등</span></label> <!-- 예시 글씨 크기를 작게 변경 -->
+            <input type="number" id="merchants" value="3000000" required><br>
 
             <label for="months">기간 (개월수) 입력:</label>
-            <input type="number" id="months" required><br>
+            <input type="number" id="months" value="12" required><br>
 
             <label for="frequency">데이터 제공 횟수 입력:</label>
             <select id="frequency" required>
-                <option value="1회성">1회성</option>
+                <option value="1회성" selected>1회성</option>
                 <option value="분기별">분기별</option>
                 <option value="월별">월별</option>
                 <option value="주차별">주차별</option>
@@ -201,17 +213,17 @@
 
             <label for="data_type">데이터 유형 입력:</label>
             <select id="data_type" required>
+                <option value="익명" selected>익명</option>
                 <option value="가명">가명</option>
-                <option value="익명"selected>익명</option>
                 <option value="통계">통계</option>
-                <option value="보고서">보고서</option>
+                <option value="보고서">Report</option>
             </select><br>
 
             <label for="difficulty">데이터 난이도 입력:</label>
             <select id="difficulty" required>
                 <option value="LV1">Level 1</option>
                 <option value="LV2">Level 2</option>
-                <option value="LV3"selected>Level 3</option>
+                <option value="LV3" selected>Level 3</option>
                 <option value="LV4">Level 4</option>
                 <option value="LV5">Level 5</option>
             </select><br>
